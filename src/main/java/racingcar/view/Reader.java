@@ -10,10 +10,10 @@ public class Reader {
         return carNames.split(",");
     }
 
-    public static int inputGameRounds(){
+    public static String inputGameRounds(){
         System.out.println("시도할 횟수는 몇 회인가요?");
         String gameRounds = Console.readLine();
         Console.close();
-        return Integer.parseInt(gameRounds);
+        return gameRounds;
     }
 }
