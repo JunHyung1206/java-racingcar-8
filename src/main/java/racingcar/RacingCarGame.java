@@ -22,14 +22,7 @@ public class RacingCarGame {
 
     void process(){
         initialize();
-        System.out.println();
-        System.out.println("실행 결과");
-
-        for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
-            runOneRound();
-            Printer.printGameRacing(this.racingCars);
-        }
-
+        playRacing();
         Printer.printWinner(getWinner());
     }
 
@@ -44,6 +37,13 @@ public class RacingCarGame {
         this.gameRounds = Integer.parseInt(gameRounds);
     }
 
+    private void playRacing() {
+        Printer.printStartRacing();
+        for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
+            runOneRound();
+            Printer.printGameRacing(this.racingCars);
+        }
+    }
 
     private void runOneRound() {
         for (RacingCar racingCar : racingCars) {

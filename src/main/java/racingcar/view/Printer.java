@@ -23,4 +23,9 @@ public class Printer {
         String winnerNames = String.join(", ",winners);
         System.out.println(winnerNames);
     }
+
+    public static void printStartRacing(){
+        System.out.println();
+        System.out.println("실행 결과");
+    }
 }
