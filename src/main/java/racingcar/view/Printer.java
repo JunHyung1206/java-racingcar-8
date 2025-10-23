@@ -14,14 +14,8 @@ public class Printer {
     }
 
     public static void printWinner(List<RacingCar> racingGameWinners) {
-        List<String> winners = new ArrayList<>();
-        for (RacingCar racingCar : racingGameWinners) {
-            winners.add(racingCar.getName());
-        }
-
-        System.out.print("최종 우승자 : ");
-        String winnerNames = String.join(", ",winners);
-        System.out.println(winnerNames);
+        String winnerNames = String.join(", ", racingGameWinners.stream().map(RacingCar::getName).toList());
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
     public static void printStartRacing(){
