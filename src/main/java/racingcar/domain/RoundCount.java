@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public final class RoundCount {
     private final int value;
+
     public RoundCount(String rawRoundCount) {
         if (rawRoundCount == null || rawRoundCount.trim().isEmpty()) {
             throw new IllegalArgumentException("시도할 횟수를 입력해주세요.");
@@ -16,6 +17,7 @@ public final class RoundCount {
             throw new IllegalArgumentException("정수를 입력해주세요.");
         }
     }
+
     public int getValue() {
         return value;
     }

@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.RacingCar;
-
 import java.util.List;
 
 public class ConsoleOutputView implements OutputView {
