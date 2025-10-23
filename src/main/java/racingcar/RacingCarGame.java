@@ -29,16 +29,26 @@ public class RacingCarGame {
         this.gameRounds = Integer.parseInt(gameRounds);
 
 
+        System.out.println();
+        System.out.println("실행 결과");
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
             for (RacingCar racingCar : racingCars) {
 
                 if(isMoveForward()){
                     racingCar.moveForward();
                 }
-
-                System.out.println("racingCar = " + racingCar);
             }
+
+            for (RacingCar racingCar : racingCars) {
+                System.out.print(racingCar.getName() + " : ");
+                for (int i = 0; i < racingCar.getPosition(); i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
         }
+
 
     }
 
