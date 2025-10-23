@@ -1,10 +1,12 @@
 package racingcar.view;
 
+import racingcar.domain.RacingCar;
+
 import java.util.List;
 
 // view/OutputView.java
 public interface OutputView {
     void printStart();
-    void printLap(List<String> lapLines);
-    void printWinners(List<String> winners);
+    void printLap(List<RacingCar> racingCarList);
+    void printWinners(List<RacingCar> winnerList);
 }

@@ -1,39 +1,28 @@
 package racingcar.view;
 
-import racingcar.RacingCar;
+import racingcar.domain.RacingCar;
 
 import java.util.List;
 
 public class ConsoleOutputView implements OutputView {
     @Override
     public void printStart() {
-
+        System.out.println();
+        System.out.println("실행 결과");
     }
 
     @Override
-    public void printLap(List<String> lapLines) {
-
-    }
-
-    @Override
-    public void printWinners(List<String> winners) {
-
-    }
-
-    public static void printGameRacing(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
-            System.out.println(racingCar.getCurrentResult());
+    public void printLap(List<RacingCar> racingCarList) {
+        for (RacingCar racingCar : racingCarList) {
+            System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getPosition()));
         }
         System.out.println();
     }
 
-    public static void printWinner(List<RacingCar> racingGameWinners) {
-        String winnerNames = String.join(", ", racingGameWinners.stream().map(RacingCar::getName).toList());
+    @Override
+    public void printWinners(List<RacingCar> winnerList) {
+        String winnerNames = String.join(", ", winnerList.stream().map(RacingCar::getName).toList());
         System.out.println("최종 우승자 : " + winnerNames);
     }
 
-    public static void printStartRacing(){
-        System.out.println();
-        System.out.println("실행 결과");
-    }
 }
