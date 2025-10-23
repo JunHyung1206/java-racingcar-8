@@ -12,11 +12,11 @@ public class RacingCarGame {
 
     private int gameRounds;
     private final List<RacingCar> racingCars;
-    private int winnerPosition;
+    private int leadPosition;
 
     RacingCarGame(){
         gameRounds = 0;
-        winnerPosition = 0;
+        leadPosition = 0;
         racingCars = new ArrayList<>();
     }
 
@@ -50,18 +50,12 @@ public class RacingCarGame {
             if(isMoveForward()){
                 racingCar.moveForward();
             }
-            winnerPosition = Math.max(winnerPosition, racingCar.getPosition());
+            leadPosition = Math.max(leadPosition, racingCar.getPosition());
         }
     }
 
     private List<RacingCar> getWinner() {
-        List<RacingCar> winners = new ArrayList<>();
-        for (RacingCar racingCar : racingCars) {
-            if (racingCar.getPosition() == winnerPosition) {
-                winners.add(racingCar);
-            }
-        }
-        return winners;
+        return racingCars.stream().filter(racingCar -> racingCar.getPosition() == leadPosition).toList();
     }
 
     private boolean isMoveForward() {
