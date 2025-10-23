@@ -17,6 +17,7 @@ public class RacingCarGame {
         gameRounds = 0;
         racingCars = new ArrayList<>();
     }
+
     void process(){
         // TODO: 프로그램 구현
         String[] carNames = Reader.inputCarNames();
@@ -37,18 +38,7 @@ public class RacingCarGame {
             Printer.printGameRacing(this.racingCars);
         }
 
-
-        List<RacingCar> winner = getWinner();
-        System.out.print("최종 우승자 : ");
-
-        List<String> winners = new ArrayList<>();
-        for (RacingCar racingCar : winner) {
-            winners.add(racingCar.getName());
-        }
-
-        String winnerNames = String.join(", ",winners);
-        System.out.println(winnerNames);
-
+        Printer.printWinner(getWinner());
     }
 
     private void runOneRound() {
