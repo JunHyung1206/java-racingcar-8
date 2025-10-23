@@ -48,6 +48,19 @@ public class RacingCarGame {
             }
             System.out.println();
         }
+
+
+        List<RacingCar> winner = getWinner();
+        System.out.print("최종 우승자 : ");
+
+        List<String> winners = new ArrayList<>();
+        for (RacingCar racingCar : winner) {
+            winners.add(racingCar.getName());
+        }
+
+        String winnerNames = String.join(", ",winners);
+        System.out.println(winnerNames);
+
     }
 
     private List<RacingCar> getWinner() {
