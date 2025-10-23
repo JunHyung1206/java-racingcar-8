@@ -8,4 +8,16 @@ public class RacingCar {
         this.name = name;
         position = 0;
     }
+
+    public void moveForward(){
+        position++;
+    }
+
+    @Override
+    public String toString() {
+        return "RacingCar{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
 }

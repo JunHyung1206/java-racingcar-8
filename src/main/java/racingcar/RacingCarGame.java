@@ -1,6 +1,6 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.Reader;
 
 import java.util.ArrayList;
@@ -29,5 +29,20 @@ public class RacingCarGame {
         this.gameRounds = Integer.parseInt(gameRounds);
 
 
+        for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
+            for (RacingCar racingCar : racingCars) {
+
+                if(isMoveForward()){
+                    racingCar.moveForward();
+                }
+
+                System.out.println("racingCar = " + racingCar);
+            }
+        }
+
+    }
+
+    private boolean isMoveForward() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }
