@@ -21,14 +21,6 @@ public class RacingCar {
         position++;
     }
 
-    @Override
-    public String toString() {
-        return "RacingCar{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
-    }
-
     public String getCurrentResult(){
         return name + " : " + "-".repeat(position);
     }

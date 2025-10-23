@@ -2,10 +2,24 @@ package racingcar.view;
 
 import racingcar.RacingCar;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Printer {
+public class ConsoleOutputView implements OutputView {
+    @Override
+    public void printStart() {
+
+    }
+
+    @Override
+    public void printLap(List<String> lapLines) {
+
+    }
+
+    @Override
+    public void printWinners(List<String> winners) {
+
+    }
+
     public static void printGameRacing(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             System.out.println(racingCar.getCurrentResult());

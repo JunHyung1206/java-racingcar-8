@@ -2,11 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.converter.Converter;
-import racingcar.view.Printer;
-import racingcar.view.Reader;
+import racingcar.view.ConsoleInputView;
+import racingcar.view.ConsoleOutputView;
+import racingcar.view.InputView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGame {
@@ -23,20 +22,21 @@ public class RacingCarGame {
     void process(){
         initialize();
         playRacing();
-        Printer.printWinner(getWinner());
+        ConsoleOutputView.printWinner(getWinner());
     }
 
     private void initialize() {
         // 입력값을 값에 맞게 객체로 변환하는 과정 수행
-        this.racingCars = Converter.convertCarNames(Reader.inputCarNames());
-        this.gameRounds = Converter.convertGameRound(Reader.inputGameRounds());
+        InputView inputView = new ConsoleInputView();
+        this.racingCars = Converter.convertCarNames(inputView.readCarNames());
+        this.gameRounds = Converter.convertGameRound(inputView.readRoundCount());
     }
 
     private void playRacing() {
-        Printer.printStartRacing();
+        ConsoleOutputView.printStartRacing();
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
             runOneRound();
-            Printer.printGameRacing(this.racingCars);
+            ConsoleOutputView.printGameRacing(this.racingCars);
         }
     }
 
