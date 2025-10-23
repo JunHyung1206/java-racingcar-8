@@ -48,8 +48,23 @@ public class RacingCarGame {
             }
             System.out.println();
         }
+    }
 
+    private List<RacingCar> getWinner() {
+        List<RacingCar> winners = new ArrayList<>();
+        int winnerPosition = 0;
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.getPosition() > winnerPosition) {
+                winnerPosition = racingCar.getPosition();
+            }
+        }
 
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.getPosition() == winnerPosition) {
+                winners.add(racingCar);
+            }
+        }
+        return winners;
     }
 
     private boolean isMoveForward() {
