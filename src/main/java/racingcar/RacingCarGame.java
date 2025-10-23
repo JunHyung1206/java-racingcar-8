@@ -36,7 +36,7 @@ public class RacingCarGame {
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
             runOneRound();
             Printer.printGameRacing(this.racingCars);
-            System.out.println();
+
         }
 
 

@@ -9,5 +9,6 @@ public class Printer {
         for (RacingCar racingCar : racingCars) {
             System.out.println(racingCar.getCurrentResult());
         }
+        System.out.println();
     }
 }
