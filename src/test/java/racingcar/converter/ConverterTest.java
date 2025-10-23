@@ -34,11 +34,6 @@ class ConverterTest {
         @DisplayName("실패 케이스 : 빈 문자열이 들어온 경우 실패합니다.")
         void convertNameEmpty() {
             assertThrows(IllegalArgumentException.class, () -> Converter.convertCarNames(""));
-            try{
-                Converter.convertCarNames("");
-            } catch (IllegalArgumentException e){
-                System.out.println(e.getMessage());
-            }
         }
 
         @Test
@@ -46,11 +41,31 @@ class ConverterTest {
         void convertNameWithLongName() {
             assertThrows(IllegalArgumentException.class, () -> Converter.convertCarNames("abcdef"));
             assertThrows(IllegalArgumentException.class, () -> Converter.convertCarNames("car1,car2,LongCar3"));
-            try{
-                Converter.convertCarNames("car1,car2,LongCar3");
-            } catch (IllegalArgumentException e){
-                System.out.println(e.getMessage());
-            }
+        }
+    }
+
+    @Nested
+    class ConvertRoundNumTest{
+
+        @Test
+        @DisplayName("실패 케이스 : 빈 문자열이 들어온 경우 실패합니다.")
+        void convertNumEmpty() {
+            assertThrows(IllegalArgumentException.class, () -> Converter.convertCarNames(""));
+        }
+
+        @Test
+        @DisplayName("실패 케이스 : 숫자가 들어오지 않은 경우 실패합니다.")
+        void convertNumNotInteger() {
+            assertThrows(IllegalArgumentException.class, () -> Converter.convertGameRound(","));
+        }
+
+        @Test
+        @DisplayName("실패 케이스 : 음수 혹은 0이 들어온 경우 실패합니다.")
+        void convertNumNotPositiveInteger() {
+            assertThrows(IllegalArgumentException.class, () -> Converter.convertGameRound("-1"));
+            assertThrows(IllegalArgumentException.class, () -> Converter.convertGameRound("-4"));
+            assertThrows(IllegalArgumentException.class, () -> Converter.convertGameRound("0"));
+
         }
 
     }
