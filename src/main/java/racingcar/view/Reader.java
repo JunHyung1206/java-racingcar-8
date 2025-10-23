@@ -11,7 +11,6 @@ public class Reader {
 
     public static String inputGameRounds(){
         System.out.println("시도할 횟수는 몇 회인가요?");
-        String gameRounds = Console.readLine();
-        return gameRounds;
+        return Console.readLine();
     }
 }

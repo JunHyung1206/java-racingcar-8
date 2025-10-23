@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.Printer;
 import racingcar.view.Reader;
 
 import java.util.ArrayList;
@@ -33,19 +34,11 @@ public class RacingCarGame {
         System.out.println("실행 결과");
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
             for (RacingCar racingCar : racingCars) {
-
                 if(isMoveForward()){
                     racingCar.moveForward();
                 }
             }
-
-            for (RacingCar racingCar : racingCars) {
-                System.out.print(racingCar.getName() + " : ");
-                for (int i = 0; i < racingCar.getPosition(); i++) {
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
+            Printer.printGameRacing(this.racingCars);
             System.out.println();
         }
 

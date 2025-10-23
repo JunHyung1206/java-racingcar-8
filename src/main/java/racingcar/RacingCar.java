@@ -28,4 +28,8 @@ public class RacingCar {
                 ", position=" + position +
                 '}';
     }
+
+    public String getCurrentResult(){
+        return name + " : " + "-".repeat(position);
+    }
 }
