@@ -5,12 +5,13 @@ import racingcar.view.Printer;
 import racingcar.view.Reader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGame {
 
     private int gameRounds;
-    private List<RacingCar> racingCars;
+    private final List<RacingCar> racingCars;
 
     RacingCarGame(){
         gameRounds = 0;
@@ -24,9 +25,7 @@ public class RacingCarGame {
         // TODO: 입력값이 유효한지 검증을 하는 단계 필요
 
         // 입력값을 값에 맞게 객체로 변환하는 과정 수행
-        for (String carName : carNames) {
-            this.racingCars.add(new RacingCar(carName));
-        }
+        Arrays.stream(carNames).forEach(carName -> this.racingCars.add(new RacingCar(carName)));
         this.gameRounds = Integer.parseInt(gameRounds);
 
 
@@ -36,7 +35,6 @@ public class RacingCarGame {
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
             runOneRound();
             Printer.printGameRacing(this.racingCars);
-
         }
 
 
