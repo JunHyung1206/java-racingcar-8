@@ -32,12 +32,9 @@ public class RacingCarGame {
 
         System.out.println();
         System.out.println("실행 결과");
+        
         for (int gameRound = 0; gameRound < this.gameRounds; gameRound++) {
-            for (RacingCar racingCar : racingCars) {
-                if(isMoveForward()){
-                    racingCar.moveForward();
-                }
-            }
+            runOneRound();
             Printer.printGameRacing(this.racingCars);
             System.out.println();
         }
@@ -54,6 +51,14 @@ public class RacingCarGame {
         String winnerNames = String.join(", ",winners);
         System.out.println(winnerNames);
 
+    }
+
+    private void runOneRound() {
+        for (RacingCar racingCar : racingCars) {
+            if(isMoveForward()){
+                racingCar.moveForward();
+            }
+        }
     }
 
     private List<RacingCar> getWinner() {
