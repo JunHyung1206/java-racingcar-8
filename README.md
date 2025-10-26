@@ -1,11 +1,11 @@
 # java-racingcar-precourse
 ## 구현해야할 기능 목록
-- [ ] 경주해야 할 자동차의 대수 및 이름을 입력받는 기능 (InputCarNames)
-- [ ] 전진하는 조건을 확인하고 자동차를 이동하는 기능 (MoveCar)
-- [ ] 사용자의 이동 횟수를 이동받는 횟수 (InputRounds)
-- [ ] 각 전진 횟수에 맞게 출력하는 기능 (PrintRacing)
-- [ ] 우승자를 판별하는 기능 (ResultWinner)
-- [ ] 공동 우승자가 있는 경우 이를 모두 구분하여 출력하는 기능 (PrintWinner)
+- [x] 경주해야 할 자동차의 대수 및 이름을 입력받는 기능 (InputCarNames)
+- [x] 전진하는 조건을 확인하고 자동차를 이동하는 기능 (MoveCar)
+- [x] 사용자의 이동 횟수를 이동받는 횟수 (InputRounds)
+- [x] 각 전진 횟수에 맞게 출력하는 기능 (PrintRacing)
+- [x] 우승자를 판별하는 기능 (ResultWinner)
+- [x] 공동 우승자가 있는 경우 이를 모두 구분하여 출력하는 기능 (PrintWinner)
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
