@@ -50,6 +50,10 @@ class RacingCarFactoryTest {
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
+            RacingCarFactory.fromString("car1,car2,");
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
             RacingCarFactory.fromString(" racingCar1,car2");
         });
 
