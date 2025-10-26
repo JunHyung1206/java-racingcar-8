@@ -1,8 +1,8 @@
 package racingcar.view;
 
-import racingcar.domain.RacingCar;
 import racingcar.dto.RacingCarDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleOutputView implements OutputView {
@@ -15,15 +15,22 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void printLap(List<RacingCarDTO> racingCarList) {
         for (RacingCarDTO racingCar : racingCarList) {
-            System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getPosition()));
+            System.out.println(racingCurrentState(racingCar));
         }
         System.out.println();
     }
 
     @Override
     public void printWinners(List<RacingCarDTO> winnerList) {
-        String winnerNames = String.join(", ", winnerList.stream().map(RacingCarDTO::getName).toList());
+        List<String> winnerNameList = new ArrayList<>();
+        for (RacingCarDTO winner : winnerList) {
+            winnerNameList.add(winner.getName());
+        }
+        String winnerNames = String.join(", ", winnerNameList);
         System.out.println("최종 우승자 : " + winnerNames);
     }
 
+    private String racingCurrentState(RacingCarDTO racingCar) {
+        return racingCar.getName() + " : " + "-".repeat(racingCar.getPosition());
+    }
 }
