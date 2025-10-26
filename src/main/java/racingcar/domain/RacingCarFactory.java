@@ -9,7 +9,7 @@ public class RacingCarFactory {
             throw new IllegalArgumentException("자동차의 이름을 입력해주세요.");
         }
         List<RacingCar> racingCars = new ArrayList<>();
-        for (String name : input.split(",")) {
+        for (String name : input.split(",", -1)) {
             racingCars.add(new RacingCar(new RacingCarName(name)));
         }
         return racingCars;
