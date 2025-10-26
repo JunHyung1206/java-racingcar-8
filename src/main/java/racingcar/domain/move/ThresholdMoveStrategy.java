@@ -2,7 +2,7 @@ package racingcar.domain.move;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class TresholdMoveStrategy implements MoveStrategy {
+public class ThresholdMoveStrategy implements MoveStrategy {
     @Override
     public int moveStep() {
         int stepFactor = Randoms.pickNumberInRange(0, 9);

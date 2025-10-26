@@ -5,7 +5,7 @@ import racingcar.domain.RacingCarFactory;
 
 import racingcar.domain.RacingCarGame;
 import racingcar.domain.RoundCount;
-import racingcar.domain.move.TresholdMoveStrategy;
+import racingcar.domain.move.ThresholdMoveStrategy;
 import racingcar.dto.RacingCarDTO;
 import racingcar.mapper.RacingCarMapper;
 import racingcar.view.InputView;
@@ -24,7 +24,7 @@ public class RacingCarGameController {
     }
 
     public void process() {
-        RacingCarGame racingCarGame = new RacingCarGame(RacingCarFactory.fromString(inputView.readCarNames()), new TresholdMoveStrategy());
+        RacingCarGame racingCarGame = new RacingCarGame(RacingCarFactory.fromString(inputView.readCarNames()), new ThresholdMoveStrategy());
         RoundCount roundCount = new RoundCount(inputView.readRoundCount());
         outputView.printStart();
 
