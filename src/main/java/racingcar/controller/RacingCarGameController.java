@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import racingcar.domain.RacingCarFactory;
 import racingcar.domain.RacingCar;
@@ -8,19 +8,19 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import java.util.List;
 
-public class RacingCarGame {
+public class RacingCarGameController {
     private int roundCounts;
     private List<RacingCar> racingCars;
 
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RacingCarGame(InputView inputView, OutputView outputView) {
+    public RacingCarGameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
-    void process() {
+    public void process() {
         initialize();
         outputView.printStart();
         playRacing();
