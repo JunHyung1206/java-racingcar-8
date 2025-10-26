@@ -19,9 +19,7 @@ public class RacingCar {
         return position;
     }
 
-    public void tryForward(){
-        if(Randoms.pickNumberInRange(0, 9) >= 4){
-            position++;
-        }
+    public void moveForward(int step){
+        position += step;
     }
 }

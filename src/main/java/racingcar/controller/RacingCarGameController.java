@@ -1,17 +1,20 @@
 package racingcar.controller;
 
-import racingcar.domain.RacingCarFactory;
 import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCarFactory;
+
+import racingcar.domain.RacingCarGame;
 import racingcar.domain.RoundCount;
+import racingcar.domain.move.TresholdMoveStrategy;
+import racingcar.dto.RacingCarDTO;
 import racingcar.mapper.RacingCarMapper;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
 import java.util.List;
 
-public class RacingCarGameController {
-    private int roundCounts;
-    private List<RacingCar> racingCars;
 
+public class RacingCarGameController {
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -21,40 +24,16 @@ public class RacingCarGameController {
     }
 
     public void process() {
-        initialize();
+        RacingCarGame racingCarGame = new RacingCarGame(RacingCarFactory.fromString(inputView.readCarNames()), new TresholdMoveStrategy());
+        RoundCount roundCount = new RoundCount(inputView.readRoundCount());
         outputView.printStart();
-        playRacing();
-        outputView.printWinners(RacingCarMapper.toRacingCarDTOList(getWinner()));
-    }
 
-    private void initialize() {
-        // 입력값을 값에 맞게 객체로 변환하는 과정 수행
-        this.racingCars = RacingCarFactory.fromString(inputView.readCarNames());
-        this.roundCounts = new RoundCount(inputView.readRoundCount()).getValue();
-    }
-
-    private void playRacing() {
-        for (int round = 0; round < this.roundCounts; round++) {
-            runOneRound();
+        for (int round = 0; round < roundCount.getValue(); round++) {
+            List<RacingCar> racingCars = racingCarGame.playOneLap();
+            outputView.printLap(RacingCarMapper.toRacingCarDTOList(racingCars));
         }
-    }
 
-    private void runOneRound() {
-        racingCars.forEach(RacingCar::tryForward);
-        outputView.printLap(RacingCarMapper.toRacingCarDTOList(racingCars));
-    }
-
-    private int maxPosition() {
-        return racingCars.stream()
-                .mapToInt(RacingCar::getPosition)
-                .max()
-                .orElse(0);
-    }
-
-    private List<RacingCar> getWinner() {
-        int max = maxPosition();
-        return racingCars.stream()
-                .filter(car -> car.getPosition() == max)
-                .toList();
+        List<RacingCarDTO> winnerList = RacingCarMapper.toRacingCarDTOList(racingCarGame.getWinner());
+        outputView.printWinners(winnerList);
     }
 }
