@@ -10,7 +10,7 @@ public class RacingCarFactory {
         }
         List<RacingCar> racingCars = new ArrayList<>();
         for (String name : input.split(",", -1)) {
-            racingCars.add(new RacingCar(new RacingCarName(name)));
+            racingCars.add(new RacingCar(new RacingCarName(name.trim())));
         }
         return racingCars;
     }
