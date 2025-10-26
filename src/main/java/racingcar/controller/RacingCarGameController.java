@@ -5,6 +5,7 @@ import racingcar.domain.RacingCarFactory;
 
 import racingcar.domain.RacingCarGame;
 import racingcar.domain.RoundCount;
+import racingcar.domain.move.MoveStrategy;
 import racingcar.domain.move.ThresholdMoveStrategy;
 import racingcar.dto.RacingCarDTO;
 import racingcar.mapper.RacingCarMapper;
@@ -17,14 +18,16 @@ import java.util.List;
 public class RacingCarGameController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final MoveStrategy moveStrategy;
 
-    public RacingCarGameController(InputView inputView, OutputView outputView) {
+    public RacingCarGameController(InputView inputView, OutputView outputView, MoveStrategy moveStrategy) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.moveStrategy = moveStrategy;
     }
 
     public void process() {
-        RacingCarGame racingCarGame = new RacingCarGame(RacingCarFactory.fromString(inputView.readCarNames()), new ThresholdMoveStrategy());
+        RacingCarGame racingCarGame = new RacingCarGame(RacingCarFactory.fromString(inputView.readCarNames()), moveStrategy);
         RoundCount roundCount = new RoundCount(inputView.readRoundCount());
         outputView.printStart();
 
