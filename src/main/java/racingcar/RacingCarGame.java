@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.domain.RacingCarFactory;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RoundCount;
+import racingcar.mapper.RacingCarMapper;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import java.util.List;
@@ -23,7 +24,7 @@ public class RacingCarGame {
         initialize();
         outputView.printStart();
         playRacing();
-        outputView.printWinners(getWinner());
+        outputView.printWinners(RacingCarMapper.toRacingCarDTOList(getWinner()));
     }
 
     private void initialize() {
@@ -40,7 +41,7 @@ public class RacingCarGame {
 
     private void runOneRound() {
         racingCars.forEach(RacingCar::tryForward);
-        outputView.printLap(racingCars);
+        outputView.printLap(RacingCarMapper.toRacingCarDTOList(racingCars));
     }
 
     private int maxPosition() {
