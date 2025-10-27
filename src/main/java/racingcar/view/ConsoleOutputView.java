@@ -24,13 +24,13 @@ public class ConsoleOutputView implements OutputView {
     public void printWinners(List<RacingCarDTO> winnerList) {
         List<String> winnerNameList = new ArrayList<>();
         for (RacingCarDTO winner : winnerList) {
-            winnerNameList.add(winner.getName());
+            winnerNameList.add(winner.name());
         }
         String winnerNames = String.join(", ", winnerNameList);
         System.out.println("최종 우승자 : " + winnerNames);
     }
 
     private String racingCurrentState(RacingCarDTO racingCar) {
-        return racingCar.getName() + " : " + "-".repeat(racingCar.getPosition());
+        return racingCar.name() + " : " + "-".repeat(racingCar.position());
     }
 }
