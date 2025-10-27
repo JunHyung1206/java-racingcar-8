@@ -62,4 +62,18 @@ class RacingCarFactoryTest {
         });
     }
 
+    @Test
+    @DisplayName("실패 케이스 : 레이싱카 입력 중 중복된 이름이 입력된 경우")
+    void duplicateRacingCarName() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            RacingCarFactory.fromString("car,car,car2");
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            RacingCarFactory.fromString("car2,car,car2");
+        });
+    }
+
+
+
 }
