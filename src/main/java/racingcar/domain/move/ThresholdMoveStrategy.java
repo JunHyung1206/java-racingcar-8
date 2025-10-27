@@ -6,9 +6,9 @@ public class ThresholdMoveStrategy implements MoveStrategy {
     @Override
     public int moveStep() {
         int stepFactor = Randoms.pickNumberInRange(0, 9);
-        if(stepFactor >= 4){
+        if (stepFactor >= 4) {
             return 1;
-        } else{
+        } else {
             return 0;
         }
     }

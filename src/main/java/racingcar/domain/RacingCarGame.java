@@ -7,6 +7,7 @@ import java.util.List;
 public class RacingCarGame {
     private final List<RacingCar> racingCars;
     private final MoveStrategy moveStrategy;
+
     public RacingCarGame(List<RacingCar> racingCars, MoveStrategy moveStrategy) {
         this.racingCars = racingCars;
         this.moveStrategy = moveStrategy;

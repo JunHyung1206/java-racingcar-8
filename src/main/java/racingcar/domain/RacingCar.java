@@ -19,7 +19,7 @@ public class RacingCar {
         return position;
     }
 
-    public void moveForward(int step){
+    public void moveForward(int step) {
         position += step;
     }
 }

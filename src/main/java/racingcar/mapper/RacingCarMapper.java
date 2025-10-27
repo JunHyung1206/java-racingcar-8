@@ -10,12 +10,12 @@ import java.util.List;
 public class RacingCarMapper {
 
     public static RacingCar fromRacingCarDTO(RacingCarDTO racingCarDTO) {
-        RacingCarName carName = new RacingCarName(racingCarDTO.getName());
+        RacingCarName carName = new RacingCarName(racingCarDTO.name());
         return new RacingCar(carName);
     }
 
     public static RacingCarDTO toRacingCarDTO(RacingCar racingCar) {
-        return new RacingCarDTO(racingCar.getPosition(), racingCar.getName());
+        return new RacingCarDTO(racingCar.getName(), racingCar.getPosition());
     }
 
     public static List<RacingCarDTO> toRacingCarDTOList(List<RacingCar> racingCar) {
