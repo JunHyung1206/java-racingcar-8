@@ -7,8 +7,12 @@ public class RacingCar {
     private int position;
 
     public RacingCar(RacingCarName name) {
+        this(name, 0);
+    }
+
+    public RacingCar(RacingCarName name, int position) {
         this.name = name;
-        position = 0;
+        this.position = position;
     }
 
     public String getName() {
